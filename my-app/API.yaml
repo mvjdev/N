@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: TD API
+servers:
+  - url: http://STD22082.com
+paths:
+  /students:
+    get:
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                name: Randrianimanana Toavina Maria
+                birthdate: '2006-01-30'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                error: An error occurred
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                birthdate:
+                  type: string
+                  format: date
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                name: Randrianimanana Toavina Maria
+                birthdate: '2006-01-30'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                error: An error occurred

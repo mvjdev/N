@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "swaggerviewer:openapi": "file:///home/maria/DEBUT_REACT/my-app/API.yaml"
+    }
+}
