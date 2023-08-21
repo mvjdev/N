@@ -1,0 +1,101 @@
+openapi: '3.0.0'
+info:
+  title: Teacher API
+  version: '1.0.0'
+servers:
+  - url: http://STD22082.com
+paths:
+  /teachers:
+    get:
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    put:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        age:
+          type: integer
+        subject:
+          type: string
