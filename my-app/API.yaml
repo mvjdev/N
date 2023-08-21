@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: '3.0.0'
 info:
-  version: 1.0.0
-  title: TD API
+  title: Student API
+  version: '1.0.0'
 servers:
   - url: http://STD22082.com
 paths:
@@ -9,45 +9,120 @@ paths:
     get:
       responses:
         '200':
-          description: Success
+          description: Successful operation
           content:
             application/json:
-              example:
-                id: 1
-                name: Randrianimanana Toavina Maria
-                birthdate: '2006-01-30'
+              schema:
+                $ref: '#/components/schemas/Student'
         '500':
-          description: Internal Server Error
+          description: Server error
           content:
-            application/json:
-              example:
-                error: An error occurred
+            text/plain:
+              schema:
+                type: string
     post:
       requestBody:
+        required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: integer
-                name:
-                  type: string
-                birthdate:
-                  type: string
-                  format: date
+              $ref: '#/components/schemas/Student'
       responses:
         '200':
-          description: Success
+          description: Successful operation
           content:
             application/json:
-              example:
-                id: 1
-                name: Randrianimanana Toavina Maria
-                birthdate: '2006-01-30'
+              schema:
+                $ref: '#/components/schemas/Student'
         '500':
-          description: Internal Server Error
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+  /students/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
           content:
             application/json:
-              example:
-                error: An error occurred
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    put:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    patch:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        age:
+          type: integer
+        class:
+          type: string
