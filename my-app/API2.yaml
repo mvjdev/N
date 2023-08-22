@@ -99,3 +99,8 @@ components:
           type: integer
         subject:
           type: string
+      example:
+        id: T001
+        name: RAMAROZAKA TOKY
+        age: 30
+        subject: PROG1-WEB1-PROG2

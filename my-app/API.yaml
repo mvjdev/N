@@ -100,3 +100,8 @@ components:
           type: integer
         class:
           type: string
+      example:
+        id: STD22082
+        name: RANDRIANIMANANA Toavina Maria
+        age: 17
+        class: H3
