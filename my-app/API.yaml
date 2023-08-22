@@ -40,7 +40,6 @@ paths:
             text/plain:
               schema:
                 type: string
-  '/students/{id}':
     delete:
       parameters:
         - in: path
@@ -87,6 +86,32 @@ paths:
             text/plain:
               schema:
                 type: string
+    patch:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
 components:
   schemas:
     Student:
@@ -105,3 +130,4 @@ components:
         name: RANDRIANIMANANA Toavina Maria
         age: 17
         class: H3
+
