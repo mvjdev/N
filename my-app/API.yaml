@@ -100,9 +100,18 @@ components:
           type: integer
         class:
           type: string
+        level:
+          type: array
+          items:
+            type: string
+        years:
+          type: array
+          items:
+            type: string
       example:
         id: STD22082
         name: RANDRIANIMANANA Toavina Maria
         age: 17
         class: H3
-
+        level: L1
+        years: 2022-2023

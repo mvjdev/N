@@ -99,9 +99,21 @@ components:
         age:
           type: integer
         subject:
-          type: string
+          type: array
+          items:
+            type: string
+        classe(s) to teach:
+          type: array
+          items:
+            type: string
+        years:
+          type: array
+          items:
+            type: string
       example:
         id: T001
-        name: RAMAROZAKA TOKY
+        name: Fonenantsoa Maurica (Lou)
         age: 30
-        subject: PROG1-WEB1-PROG2
+        subject: SYS2-IA1-SYS3
+        classe(s) to teach: level L1 - level L2
+        years: 2022-2023

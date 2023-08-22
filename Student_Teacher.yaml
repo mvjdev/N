@@ -1,0 +1,229 @@
+openapi: '3.0.0'
+info:
+  title: API Documentation
+  version: '1.0.0'
+servers:
+  - url: http://STD22082.com
+
+paths:
+  /students:
+    get:
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+  /students/{id}:
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    put:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /teachers:
+    get:
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+  /teachers/{id}:
+    put:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Server error
+          content:
+            text/plain:
+              schema:
+                type: string
+
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        age:
+          type: integer
+        class:
+          type: string
+        level:
+          type: array
+          items:
+            type: string
+        years:
+          type: array
+          items:
+            type: string
+      example:
+        id: STD22082
+        name: RANDRIANIMANANA Toavina Maria
+        age: 17
+        class: H3
+        level:
+          - L1
+        years:
+          - 2022-2023
+        
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        age:
+          type: integer
+        subjects:
+          type: array
+          items:
+            type: string
+        classes_to_teach:
+          type: array
+          items:
+            type: string
+        duration:
+          type: string
+        years:
+          type: array
+          items:
+            type: string
+      example:
+        id: T001
+        lastname: RAMAROSON
+        firstname: Sandrine
+        age: 30
+        subjects:
+          - Travail collaboratif (MGT1)
+          - Gestion de projet (MGT2)
+          - Entrepreneuriat (MGT3)
+        classes_to_teach:
+          - level L1
+          - level L2
+          - level L3
+        duration:
+          - each level => each subject
+        years:
+          - 2022-2023
