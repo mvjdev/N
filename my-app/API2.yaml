@@ -40,6 +40,7 @@ paths:
             text/plain:
               schema:
                 type: string
+  /teachers/{id}:
     delete:
       parameters:
         - in: path
